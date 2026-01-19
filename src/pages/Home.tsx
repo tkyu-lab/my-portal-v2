@@ -6,7 +6,7 @@ import { ArrowRight, Code2, Zap, BookOpen, CheckCircle2, Trophy, AlertTriangle }
 //import { getLoginUrl } from "@/const";
 
 export default function Home() {
-  const  isAuthenticated  = true;//ここを書き換え
+  const isAuthenticated = true;//ここを書き換え
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
@@ -53,9 +53,9 @@ export default function Home() {
                 </div>
               </div>
               <div className="relative h-96 rounded-lg overflow-hidden border border-border/30 card-shadow">
-                <img 
-                  src="/hero-main.png" 
-                  alt="Hero" 
+                <img
+                  src="/hero-main.png"
+                  alt="Hero"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -72,11 +72,11 @@ export default function Home() {
                 AIが土台を作り、あなたが命を吹き込む。
               </p>
             </div>
-            
+
             <div className="mb-12">
-              <img 
-                src="/roadmap-infographic.png" 
-                alt="Learning Roadmap" 
+              <img
+                src="/roadmap-infographic.png"
+                alt="Learning Roadmap"
                 className="w-full rounded-lg card-shadow"
               />
             </div>
@@ -145,9 +145,9 @@ export default function Home() {
                 </div>
               </div>
               <div className="relative h-96 rounded-lg overflow-hidden border border-border/30 card-shadow">
-                <img 
-                  src="/training-dashboard.png" 
-                  alt="Training Dashboard" 
+                <img
+                  src="/training-dashboard.png"
+                  alt="Training Dashboard"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -167,11 +167,15 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
+                { title: "ホームページ開設・Vercel公開", tags: ["React", "Git", "API"], likes: 12 },
                 { title: "React Dashboard完成", tags: ["React", "CSS", "API"], likes: 42 },
-                { title: "HTMLセマンティック化", tags: ["HTML", "SEO"], likes: 28 },
-                { title: "Stripe決済実装", tags: ["JavaScript", "API", "決済"], likes: 35 }
+                { title: "HTMLセマンティック化", tags: ["HTML", "SEO"], likes: 28 }
               ].map((log, idx) => (
-                <Card key={idx} className="overflow-hidden border-border/30 hover:border-accent/50 transition-all">
+                <Card
+                  key={idx}
+                  className="overflow-hidden border-border/30 hover:border-accent/50 transition-all cursor-pointer"
+                  onClick={() => window.location.href = '/learning-log'}
+                >
                   <div className="h-40 bg-gradient-to-br from-accent/20 to-accent/5"></div>
                   <div className="p-6 space-y-4">
                     <h3 className="font-bold text-lg">{log.title}</h3>
@@ -247,9 +251,9 @@ export default function Home() {
                 </div>
               </div>
               <div className="relative h-96 rounded-lg overflow-hidden border border-border/30 card-shadow">
-                <img 
-                  src="/maintenance-module.png" 
-                  alt="Maintenance" 
+                <img
+                  src="/maintenance-module.png"
+                  alt="Maintenance"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -319,9 +323,9 @@ export default function Home() {
             </div>
 
             <div className="relative h-96 rounded-lg overflow-hidden border border-border/30 card-shadow">
-              <img 
-                src="/badges-collection.png" 
-                alt="Badges" 
+              <img
+                src="/badges-collection.png"
+                alt="Badges"
                 className="w-full h-full object-cover"
               />
             </div>
