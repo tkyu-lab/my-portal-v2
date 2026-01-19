@@ -196,13 +196,13 @@
     }
   }
 
-  /* Container for data streams */
+  /* Container for data streams - FIXED to viewport */
   .data-streams {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     pointer-events: none;
     z-index: 1;
     overflow: hidden;
@@ -223,27 +223,27 @@
   }
 
   .data-stream:nth-child(1) {
-    top: 20%;
+    top: 20vh;
     animation: data-stream-1 12s linear infinite;
     animation-delay: 0s;
   }
 
   .data-stream:nth-child(2) {
-    top: 45%;
+    top: 45vh;
     animation: data-stream-2 15s linear infinite;
     animation-delay: 4s;
     width: 40%;
   }
 
   .data-stream:nth-child(3) {
-    top: 70%;
+    top: 70vh;
     animation: data-stream-3 10s linear infinite;
     animation-delay: 7s;
     width: 45%;
   }
 
   .data-stream:nth-child(4) {
-    top: 85%;
+    top: 85vh;
     animation: data-stream-1 14s linear infinite;
     animation-delay: 2s;
     width: 35%;
