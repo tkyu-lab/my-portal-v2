@@ -1,5 +1,3 @@
-import { useState } from "react";
-import BootAnimation from "@/components/BootAnimation";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
@@ -34,8 +32,6 @@ function Router() {
 // - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
 
 function App() {
-  const [showBoot, setShowBoot] = useState(true);
-
   return (
     <ErrorBoundary>
       <ThemeProvider
@@ -44,11 +40,7 @@ function App() {
       >
         <TooltipProvider>
           <Toaster />
-          {showBoot ? (
-            <BootAnimation onComplete={() => setShowBoot(false)} />
-          ) : (
-            <Router />
-          )}
+          <Router />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
