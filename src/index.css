@@ -122,13 +122,40 @@
     @apply border-border outline-ring/50;
   }
 
+  /* Custom Animations and Interactive Effects */
+  @keyframes breathing {
+
+    0%,
+    100% {
+      filter: brightness(0.9) contrast(1.1);
+    }
+
+    50% {
+      filter: brightness(1.1) contrast(1.2);
+    }
+  }
+
+  .mouse-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -1;
+    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(0, 255, 255, 0.08),
+        transparent 80%);
+  }
+
   body {
-    @apply text-foreground min-h-screen;
+    @apply text-foreground min-h-screen relative;
     background-image: url('/cyberpunk-bg.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
+    animation: breathing 8s ease-in-out infinite;
     /* Use standard sans-serif system fonts for a clean modern look */
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   }
