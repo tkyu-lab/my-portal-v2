@@ -10,6 +10,17 @@ const LANGUAGE_TAGS = ["HTML", "CSS", "JavaScript", "React", "API", "Git", "SEO"
 export default function LearningLog() {
   const [logs, setLogs] = useState([
     {
+      id: 3,
+      author: "あなた",
+      title: "ホームページ開設・Vercel公開",
+      description: "本日、ホームページを開設しVercelへデプロイしました。既存プロジェクトの依存関係をクリーンにし、React + Viteの最小構成で再構築することで、デプロイフローを確立しました。",
+      tags: ["React", "Git", "API"],
+      image: "/hero-main.png",
+      likes: 12,
+      comments: 2,
+      timestamp: "今日"
+    },
+    {
       id: 1,
       author: "田中太郎",
       title: "React Dashboard完成",
@@ -83,7 +94,7 @@ export default function LearningLog() {
           {/* Post Form */}
           <Card className="p-8 mb-12 border-border/30">
             <h2 className="text-2xl font-bold mb-6">新しい投稿</h2>
-            
+
             <div className="space-y-6">
               <div>
                 <label className="block text-sm font-semibold mb-2">タイトル</label>
@@ -135,7 +146,7 @@ export default function LearningLog() {
           {/* Timeline */}
           <div className="space-y-6">
             <h2 className="text-2xl font-bold mb-6">最新の投稿</h2>
-            
+
             {logs.map(log => (
               <Card key={log.id} className="overflow-hidden border-border/30 hover:border-accent/50 transition-all">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
