@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Code2, Zap, BookOpen, CheckCircle2, Trophy, AlertTriangle } from "lucide-react";
-//import { getLoginUrl } from "@/const";
+import { getLoginUrl } from "@/const";
 
 export default function Home() {
   const isAuthenticated = true;//ここを書き換え
