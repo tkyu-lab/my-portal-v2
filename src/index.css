@@ -198,9 +198,18 @@
     width: 100vw;
     height: 100vh;
     pointer-events: none;
-    z-index: -1;
-    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(0, 255, 255, 0.08),
+    z-index: 1;
+    transition: opacity 0.3s ease;
+    /* Multi-layer radial gradient for depth and subtlety */
+    background:
+      radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(0, 242, 255, 0.06),
+        transparent 60%),
+      radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(0, 119, 255, 0.08),
+        transparent 70%),
+      radial-gradient(200px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(255, 255, 255, 0.03),
         transparent 80%);
   }
 
