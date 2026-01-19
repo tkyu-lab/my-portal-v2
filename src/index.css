@@ -143,11 +143,11 @@
     }
 
     5% {
-      opacity: 0.4;
+      opacity: 0.8;
     }
 
     95% {
-      opacity: 0.4;
+      opacity: 0.8;
     }
 
     100% {
@@ -163,11 +163,11 @@
     }
 
     5% {
-      opacity: 0.3;
+      opacity: 0.7;
     }
 
     95% {
-      opacity: 0.3;
+      opacity: 0.7;
     }
 
     100% {
@@ -183,11 +183,11 @@
     }
 
     5% {
-      opacity: 0.5;
+      opacity: 0.9;
     }
 
     95% {
-      opacity: 0.5;
+      opacity: 0.9;
     }
 
     100% {
@@ -212,41 +212,41 @@
   .data-stream {
     position: absolute;
     left: 0;
-    height: 1px;
-    width: 40%;
+    height: 1.5px;
+    width: 50%;
     background: linear-gradient(90deg,
         transparent 0%,
-        rgba(0, 242, 255, 0.6) 50%,
+        rgba(0, 242, 255, 0.9) 50%,
         transparent 100%);
-    box-shadow: 0 0 10px rgba(0, 242, 255, 0.4);
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.6), 0 0 10px rgba(0, 242, 255, 0.4);
     opacity: 0;
   }
 
   .data-stream:nth-child(1) {
     top: 20%;
-    animation: data-stream-1 25s linear infinite;
+    animation: data-stream-1 12s linear infinite;
     animation-delay: 0s;
   }
 
   .data-stream:nth-child(2) {
     top: 45%;
-    animation: data-stream-2 30s linear infinite;
-    animation-delay: 8s;
-    width: 30%;
+    animation: data-stream-2 15s linear infinite;
+    animation-delay: 4s;
+    width: 40%;
   }
 
   .data-stream:nth-child(3) {
     top: 70%;
-    animation: data-stream-3 20s linear infinite;
-    animation-delay: 15s;
-    width: 35%;
+    animation: data-stream-3 10s linear infinite;
+    animation-delay: 7s;
+    width: 45%;
   }
 
   .data-stream:nth-child(4) {
     top: 85%;
-    animation: data-stream-1 28s linear infinite;
-    animation-delay: 5s;
-    width: 25%;
+    animation: data-stream-1 14s linear infinite;
+    animation-delay: 2s;
+    width: 35%;
   }
 
   .mouse-glow {
