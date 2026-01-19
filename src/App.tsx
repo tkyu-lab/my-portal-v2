@@ -49,6 +49,7 @@ function App() {
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <div className="mouse-glow" />
+          <div className="glitch-flash" />
           <Toaster />
           <Router />
         </TooltipProvider>
