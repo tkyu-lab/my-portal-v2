@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>トラブルシューティング</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        .slide-container{width:1280px;min-height:720px;background:#fff;display:flex;flex-direction:column;font-family:'Inter','Roboto',sans-serif;padding-top:60px;padding-left:40px;padding-right:40px;padding-bottom:20px}
+        .title{font-size:48px;font-weight:900;color:#1A1A1A;margin-bottom:32px;letter-spacing:-1px}
+        .problems-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+        .problem-card{background:#F2F2F2;padding:12px;border-left:6px solid #FF3B30;display:flex;flex-direction:column;justify-content:flex-start}
+        .problem-number{font-size:16px;font-weight:700;color:#FF3B30;margin-bottom:8px;letter-spacing:0.5px}
+        .problem-title{font-size:14px;font-weight:700;color:#1A1A1A;margin-bottom:8px}
+        .problem-content{font-size:12px;color:#333;line-height:1.5;margin-bottom:8px}
+        .problem-label{font-size:11px;font-weight:600;color:#666;text-transform:uppercase;letter-spacing:0.5px;margin-top:8px;margin-bottom:4px}
+        .problem-text{font-size:12px;color:#333;line-height:1.4}
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="title">トラブルシューティング</div>
+        <div class="problems-grid">
+            <div class="problem-card">
+                <div class="problem-number">問題1️⃣</div>
+                <div class="problem-title">ページが表示されない</div>
+                <div class="problem-label">原因</div>
+                <div class="problem-text">• サーバーが起動していない<br>• ポート競合<br>• ビルドエラー<br>• ブラウザキャッシュ</div>
+                <div class="problem-label">対応</div>
+                <div class="problem-text">pnpm dev<br>lsof -i :3000<br>pnpm build<br>Ctrl+Shift+Delete</div>
+            </div>
+
+            <div class="problem-card">
+                <div class="problem-number">問題2️⃣</div>
+                <div class="problem-title">データベース接続エラー</div>
+                <div class="problem-label">原因</div>
+                <div class="problem-text">• 接続情報が間違っている<br>• DBが起動していない<br>• マイグレーション未実行</div>
+                <div class="problem-label">対応</div>
+                <div class="problem-text">echo $DATABASE_URL<br>mysql -u root -p localhost<br>pnpm db:push</div>
+            </div>
+
+            <div class="problem-card">
+                <div class="problem-number">問題3️⃣</div>
+                <div class="problem-title">APIが応答しない</div>
+                <div class="problem-label">原因</div>
+                <div class="problem-text">• サーバーエラー<br>• ネットワーク問題<br>• tRPCルーター定義エラー</div>
+                <div class="problem-label">対応</div>
+                <div class="problem-text">tail -50 /var/log/server.log<br>curl http://localhost:3000/api/trpc<br>grep -n "router" server/routers.ts</div>
+            </div>
+
+            <div class="problem-card">
+                <div class="problem-number">問題4️⃣</div>
+                <div class="problem-title">画像が表示されない</div>
+                <div class="problem-label">原因</div>
+                <div class="problem-text">• 画像ファイルが存在しない<br>• パスが間違っている<br>• ブラウザキャッシュ</div>
+                <div class="problem-label">対応</div>
+                <div class="problem-text">ls -la client/public/<br>grep "src=" client/src/pages<br>Ctrl+Shift+Delete</div>
+            </div>
+
+            <div class="problem-card">
+                <div class="problem-number">問題5️⃣</div>
+                <div class="problem-title">ユーザー認証に失敗する</div>
+                <div class="problem-label">原因</div>
+                <div class="problem-text">• OAuth設定エラー<br>• セッションクッキー問題<br>• ブラウザ設定</div>
+                <div class="problem-label">対応</div>
+                <div class="problem-text">echo $VITE_OAUTH_PORTAL_URL<br>F12 → Application → Cookies<br>grep -i oauth server.log</div>
+            </div>
+
+            <div class="problem-card">
+                <div class="problem-number">🔍 ヒント</div>
+                <div class="problem-title">問題が解決しない場合</div>
+                <div class="problem-label">確認順序</div>
+                <div class="problem-text">1. ドキュメント確認<br>2. ログ確認<br>3. Manus サポート<br>4. 開発チーム</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

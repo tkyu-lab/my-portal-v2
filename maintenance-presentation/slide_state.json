@@ -1,0 +1,156 @@
+{
+  "project_info": {
+    "title": "AI-to-Manual プラットフォーム 更新・保守ガイド",
+    "created": 1768468763.5343013,
+    "last_updated": 1768469061.9169056,
+    "total_slides": 18
+  },
+  "slides": {
+    "title_slide": "edited",
+    "platform_overview": "edited",
+    "system_architecture": "edited",
+    "maintenance_hierarchy": "edited",
+    "daily_tasks": "edited",
+    "weekly_tasks": "edited",
+    "monthly_tasks": "edited",
+    "troubleshooting": "edited",
+    "backup_recovery": "edited",
+    "security_management": "edited",
+    "performance_optimization": "edit_pending",
+    "emergency_response": "edit_pending",
+    "feature_addition": "edit_pending",
+    "regular_reviews": "edit_pending",
+    "support_resources": "edit_pending",
+    "summary": "edit_pending",
+    "qa_slide": "edit_pending",
+    "closing_slide": "edit_pending"
+  },
+  "outline": [
+    {
+      "id": "title_slide",
+      "title": "AI-to-Manual プラットフォーム 更新・保守ガイド",
+      "summary": "プレゼンテーション資料のタイトルスライド。作成日、対象者、目的を表示。",
+      "image_plan": "/home/ubuntu/ai-to-manual-platform/client/public/hero-main.png - The image shows code on one side and an abstract, futuristic AI-related graphic on the other, which perfectly fits the \"AI-to-Manual Platform\" title and the concept of combining AI with code/manual work.",
+      "slide_template_key": ""
+    },
+    {
+      "id": "platform_overview",
+      "title": "プラットフォーム概要",
+      "summary": "AI-to-Manualの概要とコンセプト、8つの主要機能を表形式で紹介。",
+      "image_plan": "/home/ubuntu/ai-to-manual-platform/client/public/roadmap-infographic.png - This slide describes the platform's concept and features, which is best represented by a high-level process diagram. Image 2 shows a three-stage process (AI Foundation, Refinement Layer, Interactive Logic) which aligns well with the platform's AI-to-Manual concept.",
+      "slide_template_key": ""
+    },
+    {
+      "id": "system_architecture",
+      "title": "システム構成",
+      "summary": "技術スタック（React、Express、MySQL等）とレイヤー構成を図解。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "maintenance_hierarchy",
+      "title": "保守体系",
+      "summary": "日次・週次・月次・四半期・年次の保守タスク階層を図で表現。",
+      "image_plan": "/home/ubuntu/ai-to-manual-platform/client/public/maintenance-module.png - This slide details the hierarchical structure of maintenance tasks (Yearly, Quarterly, Monthly, Weekly, Daily). Image 4 shows a \"Maintenance Calendar\" and \"Server Monitoring\" dashboard, which visually represents the structured and scheduled nature of maintenance.",
+      "slide_template_key": ""
+    },
+    {
+      "id": "daily_tasks",
+      "title": "日次保守タスク",
+      "summary": "毎日実施すべき確認項目（サーバー状態、アクティビティ、エラーログ）を説明。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "weekly_tasks",
+      "title": "週次保守タスク",
+      "summary": "バックアップ確認、パフォーマンス監視、セキュリティパッチの週次タスクを解説。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "monthly_tasks",
+      "title": "月次保守タスク",
+      "summary": "SEO最適化、コンテンツ更新、ユーザーデータ分析、ライブラリ更新を説明。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "troubleshooting",
+      "title": "トラブルシューティング",
+      "summary": "5つの典型的な問題（ページ表示、DB接続、API応答、画像表示、認証）と解決方法。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "backup_recovery",
+      "title": "バックアップ・復旧戦略",
+      "summary": "自動バックアップ体系と復旧手順を図解。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "security_management",
+      "title": "セキュリティ管理",
+      "summary": "セキュリティチェックリスト、環境変数管理、パッチ適用フロー。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "performance_optimization",
+      "title": "パフォーマンス最適化",
+      "summary": "画像最適化、キャッシュ設定、DB最適化、バンドルサイズ削減の4つの施策。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "emergency_response",
+      "title": "緊急対応フロー",
+      "summary": "サイトダウン時の対応フロー（1分～事後対応）とロールバック手順。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "feature_addition",
+      "title": "機能追加の流れ",
+      "summary": "新機能追加の7ステップ（要件定義～チェックポイント作成）を図解。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "regular_reviews",
+      "title": "定期レビュー",
+      "summary": "月次・四半期・年次レビューの確認項目を説明。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "support_resources",
+      "title": "重要な連絡先とリソース",
+      "summary": "サポート連絡先、重要ファイル、便利なコマンドをリスト化。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "summary",
+      "title": "まとめ",
+      "summary": "保守の3つの重要ポイント（予防的保守、監視と分析、迅速な対応）と成功の鍵。",
+      "image_plan": "/home/ubuntu/ai-to-manual-platform/client/public/training-dashboard.png - This slide summarizes the key points of maintenance (Preventive, Monitoring, Rapid Response). Image 3 shows a dashboard with proficiency metrics, which visually represents the \"Monitoring and Analysis\" aspect and the overall health/status of the learning platform. (Image 5 is reserved for the final slide about user success/badges).",
+      "slide_template_key": ""
+    },
+    {
+      "id": "qa_slide",
+      "title": "Q&A",
+      "summary": "よくある質問と回答（保守時間、パッチ適用頻度、バックアップ頻度等）。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "closing_slide",
+      "title": "安定したプラットフォーム運用のために",
+      "summary": "ガイド実装による効果（可用性、セキュリティ、パフォーマンス、ユーザー満足度、ビジネス成長）を強調。",
+      "image_plan": "/home/ubuntu/ai-to-manual-platform/client/public/badges-collection.png - This is the final slide summarizing the benefits (High Availability, Security, Performance, User Satisfaction, Business Growth). Image 5 shows various skill badges (HTML Master, CSS Expert, Performance Optimizer, Full Stack Developer), which directly relates to the platform's goal of improving user skills and achieving success, aligning with the \"User Satisfaction\" and \"Business Growth\" points.",
+      "slide_template_key": ""
+    }
+  ]
+}

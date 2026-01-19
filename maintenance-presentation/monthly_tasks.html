@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>月次保守タスク</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        .slide-container{width:1280px;min-height:720px;background:#fff;display:flex;flex-direction:column;font-family:'Inter','Roboto',sans-serif;padding-top:60px;padding-left:60px;padding-right:60px;padding-bottom:40px}
+        .title{font-size:48px;font-weight:900;color:#1A1A1A;margin-bottom:40px;letter-spacing:-1px}
+        .tasks-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:1}
+        .task-card{display:flex;flex-direction:column;background:#F2F2F2;padding:16px;border-left:6px solid #FF3B30}
+        .task-number{font-size:24px;font-weight:900;color:#FF3B30;margin-bottom:8px}
+        .task-title{font-size:18px;font-weight:700;color:#1A1A1A;margin-bottom:12px}
+        .task-schedule{font-size:12px;font-weight:600;color:#666;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px}
+        .task-items{display:flex;flex-direction:column;gap:6px}
+        .task-item{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#333;line-height:1.4}
+        .checkbox{width:16px;height:16px;border:2px solid #FF3B30;flex-shrink:0;margin-top:2px}
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="title">月次保守タスク</div>
+        <div class="tasks-grid">
+            <div class="task-card">
+                <div class="task-number">1️⃣</div>
+                <div class="task-title">SEO最適化</div>
+                <div class="task-schedule">毎月1日</div>
+                <div class="task-items">
+                    <div class="task-item"><div class="checkbox"></div><span>メタディスクリプション（160文字以内）</span></div>
+                    <div class="task-item"><div class="checkbox"></div><span>OGP画像の設定</span></div>
+                    <div class="task-item"><div class="checkbox"></div><span>サイトマップの更新</span></div>
+                    <div class="task-item"><div class="checkbox"></div><span>robots.txtの確認</span></div>
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-number">2️⃣</div>
+                <div class="task-title">コンテンツ更新</div>
+                <div class="task-schedule">毎月中旬</div>
+                <div class="task-items">
+                    <div class="task-item"><div class="checkbox"></div><span>ホームページ（月1回）</span></div>
+                    <div class="task-item"><div class="checkbox"></div><span>ブログ記事（週1回）</span></div>
+                    <div class="task-item"><div class="checkbox"></div><span>FAQ（月1回）</span></div>
+                    <div class="task-item"><div class="checkbox"></div><span>チュートリアル（四半期1回）</span></div>
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-number">3️⃣</div>
+                <div class="task-title">ユーザーデータ分析</div>
+                <div class="task-schedule">毎月末日</div>
+                <div class="task-items">
+                    <div class="task-item"><div class="checkbox"></div><span>月間アクティブユーザー数（MAU）</span></div>
+                    <div class="task-item"><div class="checkbox"></div><span>学習ログ投稿数の推移</span></div>
+                    <div class="task-item"><div class="checkbox"></div><span>トレーニング完了率</span></div>
+                    <div class="task-item"><div class="checkbox"></div><span>フォーラム活動度</span></div>
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-number">4️⃣</div>
+                <div class="task-title">ライブラリ更新確認</div>
+                <div class="task-schedule">毎月末日</div>
+                <div class="task-items">
+                    <div class="task-item"><div class="checkbox"></div><span>更新可能パッケージ確認</span></div>
+                    <div class="task-item"><div class="checkbox"></div><span>マイナーバージョンアップ</span></div>
+                    <div class="task-item"><div class="checkbox"></div><span>メジャーバージョン検討</span></div>
+                    <div class="task-item"><div class="checkbox"></div><span>テスト実行</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

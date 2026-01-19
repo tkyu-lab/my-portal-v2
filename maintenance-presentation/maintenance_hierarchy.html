@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>保守体系</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        .slide-container{width:1280px;min-height:720px;background:#fff;display:grid;grid-template-columns:1fr 1fr;font-family:'Inter','Roboto',sans-serif}
+        .left-section{padding-top:60px;padding-left:40px;padding-right:20px;padding-bottom:60px;display:flex;align-items:center;justify-content:center}
+        .left-section img{width:100%;height:auto;object-fit:contain;max-height:600px}
+        .right-section{padding-top:60px;padding-right:40px;padding-left:20px;padding-bottom:40px;display:flex;flex-direction:column;justify-content:flex-start}
+        .section-title{font-size:36px;font-weight:900;color:#1A1A1A;margin-bottom:24px;letter-spacing:-0.5px}
+        .hierarchy-container{display:flex;flex-direction:column;gap:12px}
+        .hierarchy-level{background:#F2F2F2;border-left:6px solid #FF3B30;padding:12px;text-align:center}
+        .level-frequency{font-size:14px;font-weight:700;color:#FF3B30;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
+        .level-title{font-size:16px;font-weight:700;color:#1A1A1A;margin-bottom:6px}
+        .level-items{font-size:12px;color:#333;line-height:1.5}
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="left-section">
+            <img src="/home/ubuntu/ai-to-manual-platform/client/public/maintenance-module.png" alt="Maintenance Module">
+        </div>
+        <div class="right-section">
+            <div class="section-title">保守体系</div>
+            <div class="hierarchy-container">
+                <div class="hierarchy-level">
+                    <div class="level-frequency">年次 (1月)</div>
+                    <div class="level-title">年次レビュー</div>
+                    <div class="level-items">過去1年の成果評価 / 今年の目標設定 / 大規模機能追加の計画</div>
+                </div>
+                <div class="hierarchy-level">
+                    <div class="level-frequency">四半期 (3ヶ月ごと)</div>
+                    <div class="level-title">四半期レビュー</div>
+                    <div class="level-items">機能利用状況の分析 / ユーザーフィードバック反映 / インフラ拡張計画</div>
+                </div>
+                <div class="hierarchy-level">
+                    <div class="level-frequency">月次 (毎月末)</div>
+                    <div class="level-title">月次保守</div>
+                    <div class="level-items">SEO最適化 / コンテンツ更新 / ユーザーデータ分析 / ライブラリ更新確認</div>
+                </div>
+                <div class="hierarchy-level">
+                    <div class="level-frequency">週次 (毎週)</div>
+                    <div class="level-title">週次保守</div>
+                    <div class="level-items">バックアップ確認 / パフォーマンス監視 / セキュリティパッチ確認</div>
+                </div>
+                <div class="hierarchy-level">
+                    <div class="level-frequency">日次 (毎日)</div>
+                    <div class="level-title">日次保守</div>
+                    <div class="level-items">サイト動作確認 / ユーザーアクティビティ確認 / エラーログ確認</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>バックアップ・復旧戦略</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        .slide-container{width:1280px;min-height:720px;background:#fff;display:flex;flex-direction:column;font-family:'Inter','Roboto',sans-serif;padding-top:60px;padding-left:60px;padding-right:60px;padding-bottom:40px}
+        .title{font-size:48px;font-weight:900;color:#1A1A1A;margin-bottom:32px;letter-spacing:-1px}
+        .backup-system{display:flex;flex-direction:column;gap:12px;margin-bottom:24px}
+        .backup-box{background:#F2F2F2;padding:12px;border-left:6px solid #FF3B30;text-align:center}
+        .backup-title{font-size:14px;font-weight:700;color:#FF3B30;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
+        .backup-content{font-size:13px;color:#333;line-height:1.5}
+        .arrow{text-align:center;font-size:20px;color:#FF3B30;margin:8px 0}
+        .recovery-section{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px}
+        .recovery-box{background:#F2F2F2;padding:16px;border-left:6px solid #FF3B30}
+        .recovery-title{font-size:16px;font-weight:700;color:#1A1A1A;margin-bottom:12px}
+        .recovery-steps{display:flex;flex-direction:column;gap:8px}
+        .step{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#333;line-height:1.4}
+        .step-number{font-weight:700;color:#FF3B30;min-width:20px}
+        .step-text{flex:1}
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="title">バックアップ・復旧戦略</div>
+
+        <div class="backup-system">
+            <div class="backup-box">
+                <div class="backup-title">自動バックアップ</div>
+                <div class="backup-content">日次: 毎日午前2時 | 週次: 毎週日曜日午前3時 | 月次: 毎月1日午前4時</div>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="backup-box">
+                <div class="backup-title">バックアップ対象</div>
+                <div class="backup-content">✓ Database全体 | ✓ ユーザーアップロード画像 | ✓ 設定ファイル | ✓ 学習ログ・フォーラム投稿</div>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="backup-box">
+                <div class="backup-title">保存先</div>
+                <div class="backup-content">• AWS S3 (プライマリ) | • ローカルストレージ (セカンダリ)</div>
+            </div>
+        </div>
+
+        <div class="recovery-section">
+            <div class="recovery-box">
+                <div class="recovery-title">手動バックアップ</div>
+                <div class="recovery-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-text">mysqldump -u root -p ai_to_manual > backup_$(date +%Y%m%d_%H%M%S).sql</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-text">tar -czf backup_files_$(date +%Y%m%d_%H%M%S).tar.gz client/public/</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-text">aws s3 cp backup_*.sql s3://backup-bucket/</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-text">aws s3 cp backup_*.tar.gz s3://backup-bucket/</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recovery-box">
+                <div class="recovery-title">復旧手順</div>
+                <div class="recovery-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-text">aws s3 ls s3://backup-bucket/ でファイル確認</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-text">aws s3 cp でバックアップをダウンロード</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-text">mysql -u root -p ai_to_manual < backup_*.sql</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-text">tar -xzf backup_*.tar.gz でファイル復旧</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-text">pnpm dev でサーバー再起動</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">6</div>
+                        <div class="step-text">curl でサイト動作確認</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プラットフォーム概要</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        .slide-container{
+            width:1280px;
+            min-height:720px; /* 必須 */
+            background:#fff;
+            display:grid;grid-template-columns:1fr 1fr;
+            font-family:'Inter','Roboto',sans-serif;
+        }
+        .left-section{
+            padding:40px 20px 40px 40px; /* 縦の内側を縮小 */
+            display:flex;align-items:center;justify-content:center;
+        }
+        .left-section img{width:100%;height:auto;object-fit:contain;max-height:480px;}
+        .right-section{
+            padding-top:60px; /* タイトル上の余白は変更不可 */
+            padding-right:20px;padding-left:20px;padding-bottom:24px; /* 下余白を縮小 */
+            display:flex;flex-direction:column;justify-content:flex-start;
+        }
+        .section-title{font-size:36px;font-weight:900;color:#1A1A1A;margin-bottom:12px;letter-spacing:-0.5px}
+        .concept{font-size:16px;font-weight:600;color:#FF3B30;margin-bottom:12px;letter-spacing:0.5px;text-transform:uppercase}
+        .description{font-size:14px;color:#333;line-height:1.6;margin-bottom:12px}
+        /* 重要: features を2列にして縦方向を短縮 */
+        .features-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+        .feature-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid #EEE}
+        .feature-item:last-child{border-bottom:none}
+        .feature-icon{font-size:20px;color:#FF3B30;margin-top:2px;min-width:20px}
+        .feature-content{flex:1}
+        .feature-name{font-size:14px;font-weight:700;color:#1A1A1A;margin-bottom:4px}
+        .feature-desc{font-size:12px;color:#666;line-height:1.4}
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="left-section">
+            <img src="/home/ubuntu/ai-to-manual-platform/client/public/roadmap-infographic.png" alt="Learning Roadmap">
+        </div>
+        <div class="right-section">
+            <div class="section-title">AI-to-Manual<br>とは</div>
+            <div class="concept">コンセプト</div>
+            <div class="description">「AIを指揮し、コードを操る」。初心者からプロレベルまでのWeb開発スキルを段階的に習得できるAI学習プラットフォーム。</div>
+
+            <div class="features-grid">
+                <div class="feature-item"><div class="feature-icon">🏠</div><div class="feature-content"><div class="feature-name">ホームページ</div><div class="feature-desc">コンセプト紹介、ロードマップ表示</div></div></div>
+                <div class="feature-item"><div class="feature-icon">📝</div><div class="feature-content"><div class="feature-name">学習ログ</div><div class="feature-desc">ユーザーが進捗を投稿・共有</div></div></div>
+                <div class="feature-item"><div class="feature-icon">🎯</div><div class="feature-content"><div class="feature-name">AIトレーニング</div><div class="feature-desc">習熟度別の問題生成と進捗管理</div></div></div>
+                <div class="feature-item"><div class="feature-icon">💬</div><div class="feature-content"><div class="feature-name">質問フォーラム</div><div class="feature-desc">ソクラテス式メンター、AIヒント生成</div></div></div>
+                <div class="feature-item"><div class="feature-icon">🏆</div><div class="feature-content"><div class="feature-name">習熟度バッジ</div><div class="feature-desc">マイルストーン達成時のバッジ付与</div></div></div>
+                <div class="feature-item"><div class="feature-icon">🔧</div><div class="feature-content"><div class="feature-name">運用・保守</div><div class="feature-desc">SEO、セキュリティ、バックアップ管理</div></div></div>
+                <div class="feature-item"><div class="feature-icon">🔄</div><div class="feature-content"><div class="feature-name">GitHub同期</div><div class="feature-desc">コード同期と修正履歴の可視化</div></div></div>
+                <div class="feature-item"><div class="feature-icon">🎓</div><div class="feature-content"><div class="feature-name">クライアント対応</div><div class="feature-desc">トラブルシナリオの対話型学習</div></div></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

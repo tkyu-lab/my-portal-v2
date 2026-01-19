@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>システム構成</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        .slide-container{width:1280px;min-height:720px;background:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;font-family:'Inter','Roboto',sans-serif;padding-top:60px;padding-bottom:40px}
+        .title{font-size:48px;font-weight:900;color:#1A1A1A;margin-bottom:16px;text-align:center;letter-spacing:-1px}
+        .architecture{width:800px;display:flex;flex-direction:column;gap:12px;align-items:center}
+        .layer{width:100%;padding:12px;background:#F2F2F2;border-left:6px solid #FF3B30;text-align:center}
+        .layer-title{font-size:18px;font-weight:700;color:#1A1A1A;margin-bottom:8px}
+        .layer-content{font-size:14px;color:#333;line-height:1.5}
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="title">技術スタック</div>
+        <div class="architecture">
+            <div class="layer">
+                <div class="layer-title">フロントエンド層</div>
+                <div class="layer-content">React 19 + Tailwind CSS 4 + shadcn/ui (Vite ビルド)</div>
+            </div>
+            <div class="layer">
+                <div class="layer-title">API層 (tRPC)</div>
+                <div class="layer-content">型安全なエンドツーエンド通信</div>
+            </div>
+            <div class="layer">
+                <div class="layer-title">バックエンド層</div>
+                <div class="layer-content">Express 4 + Drizzle ORM + AI連携 (LLM) + OAuth認証</div>
+            </div>
+            <div class="layer">
+                <div class="layer-title">データベース層</div>
+                <div class="layer-content">MySQL/TiDB + S3ストレージ</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

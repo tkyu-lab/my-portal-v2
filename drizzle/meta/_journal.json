@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1768464583198,
+      "tag": "0000_lying_sunspot",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1768464800845,
+      "tag": "0001_worthless_metal_master",
+      "breakpoints": true
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>セキュリティ管理</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        .slide-container{width:1280px;min-height:720px;background:#fff;display:flex;flex-direction:column;font-family:'Inter','Roboto',sans-serif;padding-top:60px;padding-left:60px;padding-right:60px;padding-bottom:40px}
+        .title{font-size:48px;font-weight:900;color:#1A1A1A;margin-bottom:32px;letter-spacing:-1px}
+        .section{margin-bottom:24px}
+        .section-title{font-size:18px;font-weight:700;color:#FF3B30;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+        .checklist{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:24px}
+        .checklist-item{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#333;line-height:1.4}
+        .checkbox{width:14px;height:14px;border:2px solid #FF3B30;flex-shrink:0;margin-top:2px}
+        .env-vars{background:#F2F2F2;padding:16px;border-left:6px solid #FF3B30;margin-bottom:24px}
+        .env-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+        .env-item{font-size:12px;line-height:1.5}
+        .env-key{font-weight:700;color:#1A1A1A;font-family:monospace}
+        .env-desc{color:#666;margin-top:4px}
+        .management-methods{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+        .method{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#333;line-height:1.4}
+        .method-num{font-weight:700;color:#FF3B30;min-width:20px}
+        .patch-flow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+        .flow-step{background:#F2F2F2;padding:12px;border-left:6px solid #FF3B30;text-align:center}
+        .flow-step-num{font-size:16px;font-weight:700;color:#FF3B30;margin-bottom:8px}
+        .flow-step-title{font-size:13px;font-weight:700;color:#1A1A1A;margin-bottom:8px}
+        .flow-step-content{font-size:12px;color:#333;line-height:1.4}
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="title">セキュリティ管理</div>
+
+        <div class="section">
+            <div class="section-title">✓ セキュリティチェックリスト</div>
+            <div class="checklist">
+                <div class="checklist-item"><div class="checkbox"></div><span>HTTPS/SSL証明書が有効か</span></div>
+                <div class="checklist-item"><div class="checkbox"></div><span>DBパスワードが強力か</span></div>
+                <div class="checklist-item"><div class="checkbox"></div><span>APIキーが安全に管理されているか</span></div>
+                <div class="checklist-item"><div class="checkbox"></div><span>ユーザーパスワードがハッシュ化されているか</span></div>
+                <div class="checklist-item"><div class="checkbox"></div><span>SQLインジェクション対策は実装されているか</span></div>
+                <div class="checklist-item"><div class="checkbox"></div><span>XSS対策は実装されているか</span></div>
+                <div class="checklist-item"><div class="checkbox"></div><span>CSRF対策は実装されているか</span></div>
+                <div class="checklist-item"><div class="checkbox"></div><span>レート制限が設定されているか</span></div>
+                <div class="checklist-item"><div class="checkbox"></div><span>ログイン試行回数制限が設定されているか</span></div>
+                <div class="checklist-item"><div class="checkbox"></div><span>定期的なセキュリティ監査を実施しているか</span></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🔐 環境変数の管理</div>
+            <div class="env-vars">
+                <div class="env-list">
+                    <div class="env-item">
+                        <div class="env-key">DATABASE_URL</div>
+                        <div class="env-desc">DB接続文字列</div>
+                    </div>
+                    <div class="env-item">
+                        <div class="env-key">JWT_SECRET</div>
+                        <div class="env-desc">JWTトークン署名キー</div>
+                    </div>
+                    <div class="env-item">
+                        <div class="env-key">VITE_APP_ID</div>
+                        <div class="env-desc">OAuth アプリケーションID</div>
+                    </div>
+                    <div class="env-item">
+                        <div class="env-key">OAUTH_SERVER_URL</div>
+                        <div class="env-desc">OAuth サーバーURL</div>
+                    </div>
+                    <div class="env-item">
+                        <div class="env-key">BUILT_IN_FORGE_API_KEY</div>
+                        <div class="env-desc">Manus API キー</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="management-methods">
+                <div class="method"><div class="method-num">1</div><span>Management UI の「Settings」→「Secrets」で管理</span></div>
+                <div class="method"><div class="method-num">2</div><span>.env ファイルには絶対に保存しない</span></div>
+                <div class="method"><div class="method-num">3</div><span>ローカル開発時は .env.local を使用</span></div>
+                <div class="method"><div class="method-num">4</div><span>定期的にキーをローテーション（3ヶ月ごと）</span></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🔧 セキュリティパッチ適用フロー</div>
+            <div class="patch-flow">
+                <div class="flow-step">
+                    <div class="flow-step-num">1️⃣</div>
+                    <div class="flow-step-title">脆弱性スキャン</div>
+                    <div class="flow-step-content">pnpm audit</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">2️⃣</div>
+                    <div class="flow-step-title">脆弱性を自動修正</div>
+                    <div class="flow-step-content">pnpm audit --fix</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">3️⃣</div>
+                    <div class="flow-step-title">手動修正</div>
+                    <div class="flow-step-content">pnpm add package@latest</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">4️⃣</div>
+                    <div class="flow-step-title">テスト実行</div>
+                    <div class="flow-step-content">pnpm test</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">5️⃣</div>
+                    <div class="flow-step-title">ビルド確認</div>
+                    <div class="flow-step-content">pnpm build</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">6️⃣</div>
+                    <div class="flow-step-title">本番環境に反映</div>
+                    <div class="flow-step-content">デプロイ実行</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
