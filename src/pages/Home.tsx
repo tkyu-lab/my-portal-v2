@@ -167,11 +167,7 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                { title: "ホームページ開設・Vercel公開", tags: ["React", "Git", "API"], likes: 12 },
-                { title: "React Dashboard完成", tags: ["React", "CSS", "API"], likes: 42 },
-                { title: "HTMLセマンティック化", tags: ["HTML", "SEO"], likes: 28 }
-              ].map((log, idx) => (
+              {learningLogs.slice(0, 3).map((log, idx) => (
                 <Card
                   key={idx}
                   className="overflow-hidden border-border/30 hover:border-accent/50 transition-all cursor-pointer"
@@ -222,6 +218,11 @@ export default function Home() {
                   )}
                 </Card>
               ))}
+            </div>
+            <div className="text-center mt-12">
+              <Button className="btn-primary" size="lg" onClick={() => window.location.href = '/forum'}>
+                フォーラムへ移動 <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
             </div>
           </div>
         </section>

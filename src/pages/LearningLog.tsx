@@ -1,51 +1,12 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Heart, MessageCircle, Share2, Upload } from "lucide-react";
-
-const LANGUAGE_TAGS = ["HTML", "CSS", "JavaScript", "React", "API", "Git", "SEO", "Performance"];
+import { Heart, MessageCircle, Share2 } from "lucide-react";
 
 import { learningLogs } from "@/data/learningLogs";
 
 export default function LearningLog() {
-  const [logs, setLogs] = useState(learningLogs);
-
-  const [newLog, setNewLog] = useState({
-    title: "",
-    description: "",
-    selectedTags: [] as string[]
-  });
-
-  const toggleTag = (tag: string) => {
-    setNewLog(prev => ({
-      ...prev,
-      selectedTags: prev.selectedTags.includes(tag)
-        ? prev.selectedTags.filter(t => t !== tag)
-        : [...prev.selectedTags, tag]
-    }));
-  };
-
-  const handleSubmit = () => {
-    if (newLog.title && newLog.description) {
-      setLogs([
-        {
-          id: logs.length + 1,
-          author: "あなた",
-          title: newLog.title,
-          description: newLog.description,
-          tags: newLog.selectedTags,
-          image: "/training-dashboard.png",
-          likes: 0,
-          comments: 0,
-          timestamp: "今"
-        },
-        ...logs
-      ]);
-      setNewLog({ title: "", description: "", selectedTags: [] });
-    }
-  };
+  const [logs] = useState(learningLogs);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -59,57 +20,6 @@ export default function LearningLog() {
 
       <div className="section-padding">
         <div className="container max-w-4xl">
-          {/* Post Form */}
-          <Card className="p-8 mb-12 border-border/30">
-            <h2 className="text-2xl font-bold mb-6">新しい投稿</h2>
-
-            <div className="space-y-6">
-              <div>
-                <label className="block text-sm font-semibold mb-2">タイトル</label>
-                <Input
-                  placeholder="例: React Dashboard完成"
-                  value={newLog.title}
-                  onChange={(e) => setNewLog(prev => ({ ...prev, title: e.target.value }))}
-                  className="bg-card border-border/30"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold mb-2">説明</label>
-                <textarea
-                  placeholder="学習内容、工夫した点、困ったことなどを記述してください..."
-                  value={newLog.description}
-                  onChange={(e) => setNewLog(prev => ({ ...prev, description: e.target.value }))}
-                  className="w-full p-3 bg-card border border-border/30 rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 resize-none h-32"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold mb-3">使用した技術タグ</label>
-                <div className="flex flex-wrap gap-2">
-                  {LANGUAGE_TAGS.map(tag => (
-                    <Badge
-                      key={tag}
-                      variant={newLog.selectedTags.includes(tag) ? "default" : "outline"}
-                      className="cursor-pointer"
-                      onClick={() => toggleTag(tag)}
-                    >
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-
-              <div className="border-2 border-dashed border-border/30 rounded-lg p-8 text-center">
-                <Upload className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
-                <p className="text-sm text-muted-foreground">スクリーンショットをドラッグ&ドロップ</p>
-              </div>
-
-              <Button className="btn-primary w-full" onClick={handleSubmit}>
-                投稿する
-              </Button>
-            </div>
-          </Card>
 
           {/* Timeline */}
           <div className="space-y-6">
