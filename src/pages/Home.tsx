@@ -10,9 +10,9 @@ export default function Home() {
   const isAuthenticated = true;//ここを書き換え
 
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground">
+    <div className="min-h-screen flex flex-col bg-transparent text-foreground">
       {/* Navigation */}
-      <nav className="border-b border-border/30 sticky top-0 z-50 bg-background/80 backdrop-blur-sm">
+      <nav className="border-b border-border/10 sticky top-0 z-50 bg-background/20 backdrop-blur-md">
         <div className="container flex items-center justify-between h-16">
           <div className="text-2xl font-bold accent-text">AI-to-Manual</div>
           <div className="flex items-center gap-4">
@@ -65,7 +65,7 @@ export default function Home() {
         </section>
 
         {/* Learning Roadmap Section */}
-        <section className="section-padding bg-card/50 border-y border-border/30">
+        <section className="section-padding bg-transparent border-y border-border/10">
           <div className="container">
             <div className="text-center mb-16 space-y-4">
               <h2 className="text-4xl md:text-5xl font-bold">プロへの3ステップ</h2>
@@ -157,7 +157,7 @@ export default function Home() {
         </section>
 
         {/* Learning Log Section */}
-        <section className="section-padding bg-card/50 border-y border-border/30">
+        <section className="section-padding bg-transparent border-y border-border/10">
           <div className="container">
             <div className="text-center mb-16 space-y-4">
               <h2 className="text-4xl md:text-5xl font-bold">挑戦の軌跡が、ポートフォリオになる</h2>
@@ -228,7 +228,7 @@ export default function Home() {
         </section>
 
         {/* Maintenance Section */}
-        <section className="section-padding bg-card/50 border-y border-border/30">
+        <section className="section-padding bg-transparent border-y border-border/10">
           <div className="container">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
@@ -264,7 +264,7 @@ export default function Home() {
         </section>
 
         {/* Client Simulator Section */}
-        <section className="section-padding bg-card/50 border-y border-border/30">
+        <section className="section-padding bg-transparent border-y border-border/10">
           <div className="container">
             <div className="text-center mb-16 space-y-4">
               <h2 className="text-4xl md:text-5xl font-bold">実践的なトラブル対応スキル</h2>
