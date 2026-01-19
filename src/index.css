@@ -135,68 +135,118 @@
     }
   }
 
-  @keyframes glitch-line {
-
-    0%,
-    10%,
-    12%,
-    30%,
-    32%,
-    60%,
-    62%,
-    80%,
-    82%,
-    100% {
+  /* Data stream animations - multiple lines at different speeds */
+  @keyframes data-stream-1 {
+    0% {
+      transform: translateX(-100%);
       opacity: 0;
-      top: -100px;
-      height: 2px;
     }
 
-    11% {
-      opacity: 1;
-      top: 25%;
-      height: 2px;
+    5% {
+      opacity: 0.4;
     }
 
-    31% {
-      opacity: 0.9;
-      top: 65%;
-      height: 3px;
+    95% {
+      opacity: 0.4;
     }
 
-    61% {
-      opacity: 1;
-      top: 40%;
-      height: 2px;
-    }
-
-    81% {
-      opacity: 0.85;
-      top: 80%;
-      height: 2.5px;
+    100% {
+      transform: translateX(100vw);
+      opacity: 0;
     }
   }
 
-  .glitch-flash {
+  @keyframes data-stream-2 {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    5% {
+      opacity: 0.3;
+    }
+
+    95% {
+      opacity: 0.3;
+    }
+
+    100% {
+      transform: translateX(100vw);
+      opacity: 0;
+    }
+  }
+
+  @keyframes data-stream-3 {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    5% {
+      opacity: 0.5;
+    }
+
+    95% {
+      opacity: 0.5;
+    }
+
+    100% {
+      transform: translateX(100vw);
+      opacity: 0;
+    }
+  }
+
+  /* Container for data streams */
+  .data-streams {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 2px;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  /* Individual stream lines */
+  .data-stream {
+    position: absolute;
+    left: 0;
+    height: 1px;
+    width: 40%;
     background: linear-gradient(90deg,
         transparent 0%,
-        var(--primary) 20%,
-        #fff 50%,
-        var(--primary) 80%,
+        rgba(0, 242, 255, 0.6) 50%,
         transparent 100%);
-    box-shadow:
-      0 0 30px var(--primary),
-      0 0 15px var(--primary),
-      0 0 8px #fff;
+    box-shadow: 0 0 10px rgba(0, 242, 255, 0.4);
     opacity: 0;
-    pointer-events: none;
-    z-index: 9999;
-    animation: glitch-line 8s linear infinite;
+  }
+
+  .data-stream:nth-child(1) {
+    top: 20%;
+    animation: data-stream-1 25s linear infinite;
+    animation-delay: 0s;
+  }
+
+  .data-stream:nth-child(2) {
+    top: 45%;
+    animation: data-stream-2 30s linear infinite;
+    animation-delay: 8s;
+    width: 30%;
+  }
+
+  .data-stream:nth-child(3) {
+    top: 70%;
+    animation: data-stream-3 20s linear infinite;
+    animation-delay: 15s;
+    width: 35%;
+  }
+
+  .data-stream:nth-child(4) {
+    top: 85%;
+    animation: data-stream-1 28s linear infinite;
+    animation-delay: 5s;
+    width: 25%;
   }
 
   .mouse-glow {
