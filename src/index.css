@@ -196,15 +196,16 @@
     }
   }
 
-  /* Container for data streams - FIXED to viewport */
+  /* Container for data streams - COVERS ENTIRE PAGE */
   .data-streams {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
     pointer-events: none;
-    z-index: 1;
+    z-index: 10;
     overflow: hidden;
   }
 
@@ -223,30 +224,37 @@
   }
 
   .data-stream:nth-child(1) {
-    top: 20vh;
+    top: 15%;
     animation: data-stream-1 12s linear infinite;
     animation-delay: 0s;
   }
 
   .data-stream:nth-child(2) {
-    top: 45vh;
+    top: 35%;
     animation: data-stream-2 15s linear infinite;
     animation-delay: 4s;
     width: 40%;
   }
 
   .data-stream:nth-child(3) {
-    top: 70vh;
+    top: 55%;
     animation: data-stream-3 10s linear infinite;
     animation-delay: 7s;
     width: 45%;
   }
 
   .data-stream:nth-child(4) {
-    top: 85vh;
+    top: 75%;
     animation: data-stream-1 14s linear infinite;
     animation-delay: 2s;
     width: 35%;
+  }
+
+  .data-stream:nth-child(5) {
+    top: 90%;
+    animation: data-stream-2 13s linear infinite;
+    animation-delay: 10s;
+    width: 38%;
   }
 
   .mouse-glow {
@@ -256,18 +264,18 @@
     width: 100vw;
     height: 100vh;
     pointer-events: none;
-    z-index: 1;
+    z-index: 9998;
     transition: opacity 0.3s ease;
-    /* Multi-layer radial gradient for depth and subtlety */
+    /* Multi-layer radial gradient - ENHANCED visibility */
     background:
-      radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(0, 242, 255, 0.06),
+      radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(0, 242, 255, 0.15),
         transparent 60%),
-      radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(0, 119, 255, 0.08),
+      radial-gradient(350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(0, 119, 255, 0.2),
         transparent 70%),
-      radial-gradient(200px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(255, 255, 255, 0.03),
+      radial-gradient(150px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(255, 255, 255, 0.1),
         transparent 80%);
   }
 
