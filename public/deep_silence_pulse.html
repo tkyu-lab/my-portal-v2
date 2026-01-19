@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deep Silence & Pulse - Cyber Minimalism</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000000;
+      color: #ffffff;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* 背景レイヤー - スクロール可能 */
+    .background-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* 上部70%は完全な漆黒 */
+    .silence-zone {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70%;
+      background: #000000;
+      z-index: 2;
+    }
+
+    /* 下部30%に回路を配置 */
+    .circuit-zone {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 30%;
+      z-index: 1;
+      /* 上に向かって完全にフェードアウト */
+      mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0) 100%);
+      -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0) 100%);
+    }
+
+    /* SVG回路のアニメーション */
+    @keyframes breathe {
+      0%, 100% {
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    @keyframes breathe-slow {
+      0%, 100% {
+        opacity: 0.2;
+      }
+      50% {
+        opacity: 0.5;
+      }
+    }
+
+    .circuit-line {
+      stroke-width: 1;
+      fill: none;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .circuit-line-primary {
+      stroke: #00f2ff;
+      filter: blur(0.5px);
+      animation: breathe 5s ease-in-out infinite;
+    }
+
+    .circuit-line-secondary {
+      stroke: #0077ff;
+      filter: blur(0.3px);
+      animation: breathe-slow 6s ease-in-out infinite;
+      animation-delay: 1s;
+    }
+
+    .circuit-node {
+      fill: #00f2ff;
+      filter: blur(0.8px);
+      animation: breathe 4s ease-in-out infinite;
+    }
+
+    /* コンテンツエリア */
+    .content {
+      position: relative;
+      z-index: 10;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #ffffff 0%, #00f2ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-top: 4rem;
+      margin-bottom: 1rem;
+      color: #00f2ff;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      color: #e0e0e0;
+    }
+
+    .section {
+      margin-bottom: 5rem;
+    }
+
+    /* スクロールを促すインジケーター */
+    .scroll-indicator {
+      position: fixed;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      opacity: 0.6;
+      animation: float 2s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      50% {
+        transform: translateX(-50%) translateY(10px);
+      }
+    }
+
+    .scroll-indicator svg {
+      width: 24px;
+      height: 24px;
+      stroke: #00f2ff;
+      fill: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- 背景レイヤー（スクロールと共に動く） -->
+  <div class="background-layer">
+    <!-- 上部70%の静寂ゾーン -->
+    <div class="silence-zone"></div>
+    
+    <!-- 下部30%の回路ゾーン -->
+    <div class="circuit-zone">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <!-- グラデーション定義 -->
+          <linearGradient id="lineGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#00f2ff;stop-opacity:0" />
+            <stop offset="50%" style="stop-color:#00f2ff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#00f2ff;stop-opacity:0" />
+          </linearGradient>
+        </defs>
+
+        <!-- 水平ライン群 -->
+        <path class="circuit-line circuit-line-primary" 
+              d="M 0,50 L 200,50 L 250,80 L 400,80" 
+              stroke="url(#lineGrad1)" />
+        
+        <path class="circuit-line circuit-line-secondary" 
+              d="M 150,120 L 350,120 L 400,150 L 600,150" />
+        
+        <path class="circuit-line circuit-line-primary" 
+              d="M 500,60 L 700,60 L 750,90 L 950,90" />
+        
+        <path class="circuit-line circuit-line-secondary" 
+              d="M 800,130 L 1000,130 L 1050,160 L 1200,160" />
+
+        <!-- 垂直接続ライン -->
+        <path class="circuit-line circuit-line-primary" 
+              d="M 250,80 L 250,120" />
+        
+        <path class="circuit-line circuit-line-secondary" 
+              d="M 750,90 L 750,130" />
+
+        <!-- ノード（接続点） -->
+        <circle class="circuit-node" cx="250" cy="80" r="2" />
+        <circle class="circuit-node" cx="250" cy="120" r="2" />
+        <circle class="circuit-node" cx="750" cy="90" r="2" />
+        <circle class="circuit-node" cx="750" cy="130" r="2" />
+        <circle class="circuit-node" cx="400" cy="80" r="1.5" />
+        <circle class="circuit-node" cx="400" cy="150" r="1.5" />
+
+        <!-- 追加の繊細なライン -->
+        <path class="circuit-line circuit-line-secondary" 
+              d="M 100,100 L 180,100" 
+              opacity="0.4" />
+        
+        <path class="circuit-line circuit-line-primary" 
+              d="M 600,110 L 680,110" 
+              opacity="0.3" />
+        
+        <path class="circuit-line circuit-line-secondary" 
+              d="M 900,140 L 980,140" 
+              opacity="0.4" />
+
+        <!-- 右側のパターン（viewBoxを活用して繰り返し） -->
+        <g transform="translate(1100, 0)">
+          <path class="circuit-line circuit-line-primary" 
+                d="M 0,70 L 150,70 L 200,100 L 350,100" />
+          <path class="circuit-line circuit-line-secondary" 
+                d="M 100,140 L 250,140" />
+          <circle class="circuit-node" cx="200" cy="100" r="2" />
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- コンテンツ -->
+  <div class="content">
+    <section class="section">
+      <h1>Deep Silence & Pulse</h1>
+      <p>
+        静寂の中に、データが息づく気配だけを残す。<br>
+        これは、圧倒的な可読性と芸術的なサイバー・ミニマリズムを両立させた、新しいWebの表現です。
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>コンセプト</h2>
+      <p>
+        画面上部から中央にかけては、完全な漆黒（#000000）を維持。テキストが一切のストレスなく読める状態を実現しています。
+      </p>
+      <p>
+        画面下部30%の範囲にのみ、繊細な「光る電子回路のライン」を配置。フェード効果により、回路エリアは上に向かって漆黒の闇に溶け込むように完全に消えていきます。
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>スクロール挙動</h2>
+      <p>
+        背景はfixed（固定）ではなく、scroll（コンテンツと一緒に動く）ように実装されています。
+      </p>
+      <p>
+        ページをスクロールすると、上部の静寂がせり上がり、下から回路が現れ、そのままコンテンツと共に画面上へと消えていく、自然な「流れ」を体験できます。
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>繊細なグラフィックと光の演出</h2>
+      <p>
+        外部画像は使わず、Inline SVGで極細（1px程度）の回路を描画。色は#00f2ff（シアン）と#0077ff（ディープブルー）を使用し、僅かなfilter: blurでほのかなネオンの質感を演出しています。
+      </p>
+      <p>
+        回路全体、または一部の線が、4〜6秒周期でゆっくりと「呼吸」するように不透明度（opacity）が変化。点滅ではなく、あくまで「気配」としての明滅を実現しています。
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>技術仕様</h2>
+      <p>
+        • 完全なレスポンシブデザイン<br>
+        • 外部依存なし（Pure HTML/CSS/SVG）<br>
+        • GPU加速によるスムーズなアニメーション<br>
+        • アクセシビリティに配慮したコントラスト比<br>
+        • 軽量かつ高パフォーマンス
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>さらにスクロールしてみてください</h2>
+      <p>
+        下へスクロールすると、回路が画面上部へと流れていき、再び静寂の中に消えていく様子をご覧いただけます。
+      </p>
+      <p>
+        この「流れ」こそが、Deep Silence & Pulseの本質です。
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>実装の美学</h2>
+      <p>
+        このデザインは、「さりげなさ」「スクロールの挙動」「文字の読みやすさ」のすべてを、プロフェッショナルなエンジニアリングで実現しています。
+      </p>
+      <p>
+        余計な演出を削ぎ落とし、本当に必要な要素だけを残す。それが、真のミニマリズムです。
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>終わりに</h2>
+      <p>
+        このページは、1つのHTMLファイルとして完結しています。内部CSS、SVGを含み、すぐにプレビュー可能な「美しく整理されたコード」として設計されています。
+      </p>
+      <p>
+        スクロールを続けると、再び回路が現れます。この循環する美しさを、ぜひお楽しみください。
+      </p>
+    </section>
+
+    <!-- さらにコンテンツを追加して、スクロールの流れを体験 -->
+    <section class="section">
+      <h2>無限の可能性</h2>
+      <p>
+        このコンセプトは、あらゆるWebサイトに応用可能です。ポートフォリオ、プロダクトページ、ドキュメントサイト...
+      </p>
+      <p>
+        静寂と脈動。シンプルさと洗練。相反する要素を、完璧に調和させる。それが、Deep Silence & Pulseの真髄です。
+      </p>
+    </section>
+
+    <section class="section" style="padding-bottom: 200px;">
+      <h2>体験は続く</h2>
+      <p>
+        下へスクロールし続けてください。回路が再び現れ、そして消えていく。この循環する美しさこそが、デジタルの本質です。
+      </p>
+      <p style="margin-top: 3rem; opacity: 0.5; font-size: 0.9rem;">
+        Designed & Engineered with Precision<br>
+        Deep Silence & Pulse © 2026
+      </p>
+    </section>
+  </div>
+
+  <!-- スクロールインジケーター（最初だけ表示） -->
+  <div class="scroll-indicator">
+    <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </div>
+
+  <script>
+    // スクロールインジケーターを少しスクロールしたら非表示
+    window.addEventListener('scroll', () => {
+      const indicator = document.querySelector('.scroll-indicator');
+      if (window.scrollY > 100) {
+        indicator.style.opacity = '0';
+        indicator.style.pointerEvents = 'none';
+      } else {
+        indicator.style.opacity = '0.6';
+      }
+    });
+  </script>
+</body>
+</html>
